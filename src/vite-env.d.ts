@@ -6,11 +6,11 @@ declare module '*.vue' {
   export default component
 }
 
-
 // https://unpkg.com/browse/primevue@3.18.0/config/package.json
 // import PrimeVue from 'primevue/config' // Not working in PrimeVue@3.18.0
 declare module 'primevue/config/config.esm.js' {
-  import type { Plugin } from 'vue'
-  import plugin from 'primevue/config/config.esm.js'
-  export default plugin as Plugin
+  import type plugin from 'primevue/config/PrimeVue.d.ts'
+  const PrimeVue: plugin
+  export const { default: PrimeVue } // the incorrect way it's actually importing, hacked to work by allowSyntheticDefaultImports
+  export default PrimeVue // the correct way that is not used in code, but used in the definition...
 }
