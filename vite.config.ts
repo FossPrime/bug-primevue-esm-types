@@ -1,10 +1,8 @@
-import { defineConfig } from 'vite';
-import createVuePlugin from '@vitejs/plugin-vue';
-
-// https://vitejs.dev/config/
+import { defineConfig } from 'vite'
+import { default as vue } from '@vitejs/plugin-vue'
 
 export default defineConfig(async () => {
   return {
-    plugins: [createVuePlugin()],
+    plugins: [vue()],
   };
 });
